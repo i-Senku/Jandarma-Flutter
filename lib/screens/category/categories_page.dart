@@ -2,18 +2,30 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:palette_generator/palette_generator.dart';
+import 'package:jandarma_mevzuat/models/category.dart';
 
 class HomePage extends StatelessWidget {
+
+  final categoryList = [
+    Category(name: 'İDARİ',imagePath: 'assets/category/idari.jpg'),
+    Category(name: 'KAVRAMLAR',imagePath: 'assets/category/kavramlar.jpg'),
+    Category(name: 'TUTANAK',imagePath: 'assets/category/tutanak.jpg'),
+    Category(name: 'YÖNETMELİK',imagePath: 'assets/category/tutanak.jpg'),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFFD9CFCE),
         appBar: AppBar(
           title: Text("Kategoriler"),
           centerTitle: true,
         ),
-        body: ListView.builder(itemBuilder: (context, index) {
+        body: ListView.builder(
+          itemCount: categoryList.length,
+          itemBuilder: (context, index) {
           return Container(
             clipBehavior: Clip.hardEdge,
             margin: EdgeInsets.all(8),
@@ -25,8 +37,8 @@ class HomePage extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned.fill(
-                    child: Image.network(
-                  "https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/advice/maps-satellite-images/satellite-image-of-globe.jpg",
+                    child: Image.asset(
+                  categoryList[index].imagePath,
                   fit: BoxFit.fill,
                 )),
                 Positioned(
@@ -38,10 +50,10 @@ class HomePage extends StatelessWidget {
                         width: MediaQuery.of(context).size.width,
                         height: 40.0,
                         decoration: new BoxDecoration(
-                            color: Colors.grey.shade200.withOpacity(0.2)),
+                            color: Colors.grey.withOpacity(0.6)),
                         child: new Center(
                           child: new Text(
-                            'KAVRAMLAR',
+                            categoryList[index].name,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
