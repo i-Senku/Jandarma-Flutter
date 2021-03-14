@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jandarma_mevzuat/screens/alkol/alkol.dart';
+import 'package:jandarma_mevzuat/screens/category/categories.dart';
 import 'package:jandarma_mevzuat/screens/h%C4%B1z_limitleri/h%C4%B1z_limitleri.dart';
 import 'package:jandarma_mevzuat/screens/hakkinda/hakkindar.dart';
-import 'package:jandarma_mevzuat/screens/home/categories.dart';
 import 'package:jandarma_mevzuat/screens/yas_hesap/yas_hesap.dart';
 import 'package:url_launcher/url_launcher.dart';
 
